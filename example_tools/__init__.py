@@ -20,7 +20,7 @@ def colors():
     }
 
 def pprint(obj):
-    print json.dumps(obj, indent=4, sort_keys=True)
+    print(json.dumps(obj, indent=4, sort_keys=True))
 
 def pretty_code(code):
     s = colors()['OKGREEN']
@@ -39,24 +39,24 @@ def print_request_details(method, url, data, headers):
     b = colors()['BOLD']
     u = colors()['UNDERLINE']
     e = colors()['ENDC']
-    print b + u + "Request:" + e
-    print method + " " + url
-    print b + 'headers: ' + e
+    print(b + u + "Request:" + e)
+    print(method + " " + url)
+    print(b + 'headers: ' + e)
     pprint(headers)
-    print b + 'body:' + e
+    print(b + 'body:' + e)
     pprint(data)
 
 def print_response_details(code, data):
     b = colors()['BOLD']
     u = colors()['UNDERLINE']
     e = colors()['ENDC']    
-    print b + u + 'Response:\n' + e + pretty_code(code)
-    print b + 'body:' + e
+    print(b + u + 'Response:\n' + e + pretty_code(code))
+    print(b + 'body:' + e)
     pprint(data)
 
 def print_new_method(s):
     c = colors()
-    print c['OKBLUE'] + c['BOLD'] + '\n' + s + c['ENDC']
+    print(c['OKBLUE'] + c['BOLD'] + '\n' + s + c['ENDC'])
 
 
 

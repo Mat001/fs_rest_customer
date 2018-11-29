@@ -6,7 +6,7 @@ This tutorial enables you to quickly get started in your development efforts to 
 * Run, pause, and update an Experiment.  
 
 ## Prerequisites
-* Python
+* Python (tutorial is based on Python 3)
 * YAML and JSON libraries for Python
 
 ## Quick Start
@@ -297,13 +297,13 @@ import example_tools as et
 
 settings = et.load_settings()
 
-token = ('token' in settings and settings['token']) or raw_input(
+token = ('token' in settings and settings['token']) or input(
     "Please enter a valid personal token (https://app.optimizely.com/v2/profile/api): ")
 
 base_url = ('base_url' in settings and settings[
             'base_url']) or 'https://api.optimizely.com/v2'
 
-project_id = ('project_id' in settings and settings['project_id']) or int(raw_input("Please provide a Project ID: "))
+project_id = ('project_id' in settings and settings['project_id']) or int(input("Please provide a Project ID: "))
 ```
 
 Each script retrieves the token and base URL from the settings. The token ensures that you are authenticated to invoke endpoints on the specified base URL. Note that some scripts retrieve additional settings such as the project ID, as shown in the example above. 
@@ -386,7 +386,7 @@ The script starts by importing the token and base URL followed by the ID of the 
 ```python
 ...
 project_id = ('project_id' in settings and settings['project_id']) or int(
-    raw_input("Please provide a Project ID: "))
+    input("Please provide a Project ID: "))
 ...
 ```
 
@@ -466,7 +466,7 @@ The script starts by importing the token and base URL followed by the ID of the 
 ```python
 ...
 project_id = ('project_id' in settings and settings['project_id']) or int(
-    raw_input("Please provide a Project ID: "))
+    input("Please provide a Project ID: "))
 ...
 ```
 
@@ -545,9 +545,9 @@ The script starts by importing the token and base URL followed by the Project ID
 ```python
 ...
 project_id = ('project_id' in settings and settings['project_id']) or int(
-    raw_input("Please provide a Project ID: "))
+    input("Please provide a Project ID: "))
 custom_audience_attribute = ('project_id' in settings and settings['custom_audience_attribute']) or int(
-    raw_input("Please provide the name of a custom attribute: "))
+    input("Please provide the name of a custom attribute: "))
 ...
 ```
 
@@ -625,9 +625,9 @@ The script starts by importing the token and base URL followed by the Project ID
 ```python
 ...
 project_id = ('project_id' in settings and settings['project_id']) or int(
-    raw_input("Please provide a Project ID: "))
+    input("Please provide a Project ID: "))
 audience_id = ('audience_id' in settings and settings['audience_id']) or int(
-    raw_input("Please provide an Audience ID: "))
+    input("Please provide an Audience ID: "))
 ...
 ```
 
@@ -749,10 +749,10 @@ The script starts by importing the token and base URL followed by the Project ID
 ```python
 ...
 project_id = ('project_id' in settings and settings['project_id']) or int(
-    raw_input("Please provide a Project ID: "))
+    input("Please provide a Project ID: "))
 event_id = ('event_id' in settings and settings['event_id']) or int(
-    raw_input("Please provide an Event ID: "))
-feature_id = ('feature_id' in settings and settings['feature_id']) or raw_input(
+    input("Please provide an Event ID: "))
+feature_id = ('feature_id' in settings and settings['feature_id']) or input(
     "Please provide an Feature ID (leave empty to create an experiment without a feature): ")
 variable_values = ('variable_values' in settings and settings[
                    'variable_values'])
@@ -772,12 +772,12 @@ else:
 if feature_id and not variable_values:
     variable_values = []
     while True:
-        key = raw_input(
+        key = input(
             "Please provide a variable key (or hit enter without a value to stop adding): ")
         if key == '':
             break
         else:
-            value = raw_input("Please provide a variable value: ")
+            value = input("Please provide a variable value: ")
         variable_values.append({
             key: value
         })
@@ -923,7 +923,7 @@ The script starts by importing the token and base URL, followed by the Experimen
 ```python
 ...
 experiment_id = ('experiment_id' in settings and settings['experiment_id']) or int(
-    raw_input("Please provide an Experiment ID: "))
+    input("Please provide an Experiment ID: "))
 ...
 ```
 

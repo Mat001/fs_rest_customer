@@ -4,7 +4,7 @@ settings = et.load_settings()
 if not settings:
     settings = {}
 
-token = ('token' in settings and settings['token']) or raw_input(
+token = ('token' in settings and settings['token']) or input(
     "Please enter a valid personal token (https://app.optimizely.com/v2/profile/api): ")
 base_url = ('base_url' in settings and settings[
             'base_url']) or 'https://api.optimizely.com/v2'

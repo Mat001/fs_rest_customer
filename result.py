@@ -4,12 +4,12 @@ settings = et.load_settings()
 if not settings:
     settings = {}
 
-token = ('token' in settings and settings['token']) or raw_input(
+token = ('token' in settings and settings['token']) or input(
     "Please enter a valid personal token (https://app.optimizely.com/v2/profile/api): ")
 base_url = ('base_url' in settings and settings[
             'base_url']) or 'https://api.optimizely.com/v2'
 experiment_id = ('experiment_id' in settings and settings['experiment_id']) or int(
-    raw_input("Please provide an Experiment ID: "))
+    input("Please provide an Experiment ID: "))
 
 
 headers = {
@@ -18,8 +18,6 @@ headers = {
 }
 
 import requests
-import json
-import pprint
 
 
 def create_result():
@@ -27,7 +25,7 @@ def create_result():
     url = base_url + '/experiments/' + str(experiment_id) + '/results'
     et.print_request_details('GET', url, {}, headers)
     r = requests.get(url, headers=headers)
-    print r.text 
+    print(r.text)
     j = r.json()
     et.print_response_details(r.status_code, j)
 

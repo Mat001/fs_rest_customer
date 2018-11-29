@@ -4,15 +4,15 @@ settings = et.load_settings()
 if not settings:
     settings = {}
 
-token = ('token' in settings and settings['token']) or raw_input(
+token = ('token' in settings and settings['token']) or input(
     "Please enter a valid personal token (https://app.optimizely.com/v2/profile/api): ")
 base_url = ('base_url' in settings and settings[
             'base_url']) or 'https://api.optimizely.com/v2'
 project_id = ('project_id' in settings and settings['project_id']) or int(
-    raw_input("Please provide a Project ID: "))
+    input("Please provide a Project ID: "))
 
 experiment_id = ('experiment_id' in settings and settings['experiment_id']) or int(
-    raw_input("Please provide an Experiment ID: "))
+    input("Please provide an Experiment ID: "))
 
 
 import random
@@ -72,6 +72,7 @@ def update_group(id):
     r = requests.patch(url, data=json.dumps(group), headers=headers)
     j = r.json()
     et.print_response_details(r.status_code, j)
+
 
 et.print_new_method('Create a new group')
 id = create_group()
